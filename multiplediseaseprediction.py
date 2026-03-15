@@ -37,28 +37,28 @@ if (selected == 'Diabetes Prediction'):
     col1, col2, col3 = st.columns(3)
     
     with col1:
-        Pregnancies = st.text_input('Number of Pregnancies')
+        Pregnancies = st.number_input('Number of Pregnancies (0–17)', min_value=0, max_value=17, value=3, step=1)
         
     with col2:
-        Glucose = st.text_input('Glucose Level')
+        Glucose = st.number_input('Glucose Level (0–199 mg/dL)', min_value=0, max_value=199, value=120, step=1)
     
     with col3:
-        BloodPressure = st.text_input('Blood Pressure value')
+        BloodPressure = st.number_input('Blood Pressure (0–122 mm Hg)', min_value=0, max_value=122, value=69, step=1)
     
     with col1:
-        SkinThickness = st.text_input('Skin Thickness value')
+        SkinThickness = st.number_input('Skin Thickness (0–99 mm)', min_value=0, max_value=99, value=20, step=1)
     
     with col2:
-        Insulin = st.text_input('Insulin Level')
+        Insulin = st.number_input('Insulin Level (0–846 mu U/ml)', min_value=0, max_value=846, value=79, step=1)
     
     with col3:
-        BMI = st.text_input('BMI value')
+        BMI = st.number_input('BMI value (0.0–67.1)', min_value=0.0, max_value=67.1, value=32.0, step=0.1, format="%.1f")
     
     with col1:
-        DiabetesPedigreeFunction = st.text_input('Diabetes Pedigree Function value')
+        DiabetesPedigreeFunction = st.number_input('Diabetes Pedigree Function (0.078–2.42)', min_value=0.078, max_value=2.42, value=0.47, step=0.01, format="%.3f")
     
     with col2:
-        Age = st.text_input('Age of the Person')
+        Age = st.number_input('Age of the Person (21–81)', min_value=21, max_value=81, value=33, step=1)
     
     
     # code for Prediction
@@ -88,43 +88,43 @@ if (selected == 'Heart Disease Prediction'):
     col1, col2, col3 = st.columns(3)
     
     with col1:
-        age = st.text_input('Age')
+        age = st.number_input('Age (29–77)', min_value=29, max_value=77, value=54, step=1)
         
     with col2:
-        sex = st.text_input('Sex')
+        sex = st.selectbox('Sex', options=[0, 1], format_func=lambda x: 'Female' if x == 0 else 'Male')
         
     with col3:
-        cp = st.text_input('Chest Pain types')
+        cp = st.selectbox('Chest Pain Type', options=[0, 1, 2, 3], format_func=lambda x: ['Typical Angina', 'Atypical Angina', 'Non-anginal Pain', 'Asymptomatic'][x])
         
     with col1:
-        trestbps = st.text_input('Resting Blood Pressure')
+        trestbps = st.number_input('Resting Blood Pressure (94–200 mm Hg)', min_value=94, max_value=200, value=131, step=1)
         
     with col2:
-        chol = st.text_input('Serum Cholestoral in mg/dl')
+        chol = st.number_input('Serum Cholesterol (126–564 mg/dl)', min_value=126, max_value=564, value=246, step=1)
         
     with col3:
-        fbs = st.text_input('Fasting Blood Sugar > 120 mg/dl')
+        fbs = st.selectbox('Fasting Blood Sugar > 120 mg/dl', options=[0, 1], format_func=lambda x: 'No' if x == 0 else 'Yes')
         
     with col1:
-        restecg = st.text_input('Resting Electrocardiographic results')
+        restecg = st.selectbox('Resting ECG Results', options=[0, 1, 2], format_func=lambda x: ['Normal', 'ST-T Abnormality', 'LV Hypertrophy'][x])
         
     with col2:
-        thalach = st.text_input('Maximum Heart Rate achieved')
+        thalach = st.number_input('Max Heart Rate (71–202 bpm)', min_value=71, max_value=202, value=149, step=1)
         
     with col3:
-        exang = st.text_input('Exercise Induced Angina')
+        exang = st.selectbox('Exercise Induced Angina', options=[0, 1], format_func=lambda x: 'No' if x == 0 else 'Yes')
         
     with col1:
-        oldpeak = st.text_input('ST depression induced by exercise')
+        oldpeak = st.number_input('ST Depression (0.0–6.2)', min_value=0.0, max_value=6.2, value=1.0, step=0.1, format="%.1f")
         
     with col2:
-        slope = st.text_input('Slope of the peak exercise ST segment')
+        slope = st.selectbox('Slope of Peak Exercise ST', options=[0, 1, 2], format_func=lambda x: ['Upsloping', 'Flat', 'Downsloping'][x])
         
     with col3:
-        ca = st.text_input('Major vessels colored by flourosopy')
+        ca = st.selectbox('Major Vessels Colored by Fluoroscopy', options=[0, 1, 2, 3, 4])
         
     with col1:
-        thal = st.text_input('thal: 0 = normal; 1 = fixed defect; 2 = reversable defect')
+        thal = st.selectbox('Thalassemia', options=[0, 1, 2, 3], format_func=lambda x: ['Normal', 'Fixed Defect', 'Reversible Defect', 'Other'][x])
         
         
      
@@ -156,70 +156,70 @@ if (selected == "Parkinsons Prediction"):
     col1, col2, col3, col4, col5 = st.columns(5)  
     
     with col1:
-        fo = st.text_input('MDVP:Fo(Hz)')
+        fo = st.number_input('MDVP:Fo(Hz) (88–260)', min_value=88.0, max_value=260.2, value=154.2, step=0.1, format="%.3f")
         
     with col2:
-        fhi = st.text_input('MDVP:Fhi(Hz)')
+        fhi = st.number_input('MDVP:Fhi(Hz) (102–592)', min_value=102.0, max_value=592.1, value=197.1, step=0.1, format="%.3f")
         
     with col3:
-        flo = st.text_input('MDVP:Flo(Hz)')
+        flo = st.number_input('MDVP:Flo(Hz) (65–239)', min_value=65.0, max_value=239.2, value=116.3, step=0.1, format="%.3f")
         
     with col4:
-        Jitter_percent = st.text_input('MDVP:Jitter(%)')
+        Jitter_percent = st.number_input('MDVP:Jitter(%) (0.001–0.033)', min_value=0.001, max_value=0.034, value=0.006, step=0.001, format="%.6f")
         
     with col5:
-        Jitter_Abs = st.text_input('MDVP:Jitter(Abs)')
+        Jitter_Abs = st.number_input('MDVP:Jitter(Abs) (0.000007–0.00026)', min_value=0.000007, max_value=0.000260, value=0.000044, step=0.000001, format="%.6f")
         
     with col1:
-        RAP = st.text_input('MDVP:RAP')
+        RAP = st.number_input('MDVP:RAP (0.0007–0.021)', min_value=0.0006, max_value=0.022, value=0.0033, step=0.0001, format="%.6f")
         
     with col2:
-        PPQ = st.text_input('MDVP:PPQ')
+        PPQ = st.number_input('MDVP:PPQ (0.0009–0.020)', min_value=0.0009, max_value=0.020, value=0.0034, step=0.0001, format="%.6f")
         
     with col3:
-        DDP = st.text_input('Jitter:DDP')
+        DDP = st.number_input('Jitter:DDP (0.002–0.064)', min_value=0.002, max_value=0.065, value=0.010, step=0.001, format="%.6f")
         
     with col4:
-        Shimmer = st.text_input('MDVP:Shimmer')
+        Shimmer = st.number_input('MDVP:Shimmer (0.01–0.12)', min_value=0.009, max_value=0.120, value=0.030, step=0.001, format="%.6f")
         
     with col5:
-        Shimmer_dB = st.text_input('MDVP:Shimmer(dB)')
+        Shimmer_dB = st.number_input('MDVP:Shimmer(dB) (0.09–1.30)', min_value=0.08, max_value=1.31, value=0.28, step=0.01, format="%.3f")
         
     with col1:
-        APQ3 = st.text_input('Shimmer:APQ3')
+        APQ3 = st.number_input('Shimmer:APQ3 (0.005–0.056)', min_value=0.004, max_value=0.057, value=0.016, step=0.001, format="%.6f")
         
     with col2:
-        APQ5 = st.text_input('Shimmer:APQ5')
+        APQ5 = st.number_input('Shimmer:APQ5 (0.006–0.079)', min_value=0.005, max_value=0.080, value=0.018, step=0.001, format="%.6f")
         
     with col3:
-        APQ = st.text_input('MDVP:APQ')
+        APQ = st.number_input('MDVP:APQ (0.007–0.138)', min_value=0.007, max_value=0.138, value=0.024, step=0.001, format="%.6f")
         
     with col4:
-        DDA = st.text_input('Shimmer:DDA')
+        DDA = st.number_input('Shimmer:DDA (0.014–0.169)', min_value=0.013, max_value=0.170, value=0.047, step=0.001, format="%.6f")
         
     with col5:
-        NHR = st.text_input('NHR')
+        NHR = st.number_input('NHR (0.0007–0.315)', min_value=0.0006, max_value=0.315, value=0.025, step=0.001, format="%.6f")
         
     with col1:
-        HNR = st.text_input('HNR')
+        HNR = st.number_input('HNR (8.4–33.0)', min_value=8.4, max_value=33.1, value=21.9, step=0.1, format="%.3f")
         
     with col2:
-        RPDE = st.text_input('RPDE')
+        RPDE = st.number_input('RPDE (0.26–0.69)', min_value=0.25, max_value=0.69, value=0.50, step=0.01, format="%.6f")
         
     with col3:
-        DFA = st.text_input('DFA')
+        DFA = st.number_input('DFA (0.57–0.83)', min_value=0.57, max_value=0.83, value=0.72, step=0.01, format="%.6f")
         
     with col4:
-        spread1 = st.text_input('spread1')
+        spread1 = st.number_input('spread1 (-7.96 to -2.43)', min_value=-7.97, max_value=-2.43, value=-5.68, step=0.01, format="%.6f")
         
     with col5:
-        spread2 = st.text_input('spread2')
+        spread2 = st.number_input('spread2 (0.006–0.450)', min_value=0.006, max_value=0.451, value=0.227, step=0.001, format="%.6f")
         
     with col1:
-        D2 = st.text_input('D2')
+        D2 = st.number_input('D2 (1.42–3.67)', min_value=1.42, max_value=3.68, value=2.38, step=0.01, format="%.6f")
         
     with col2:
-        PPE = st.text_input('PPE')
+        PPE = st.number_input('PPE (0.045–0.527)', min_value=0.044, max_value=0.528, value=0.207, step=0.001, format="%.6f")
         
     
     
@@ -238,32 +238,6 @@ if (selected == "Parkinsons Prediction"):
     st.success(parkinsons_diagnosis)
 
 def set_bg_from_url(url, opacity=1):
-    
-    footer = """
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-    <footer>
-        <div style='visibility: visible;margin-top:7rem;justify-content:center;display:flex;'>
-            <p style="font-size:1.1rem;">
-                Made by Mohamed Shaad
-                &nbsp;
-                <a href="https://www.linkedin.com/in/mohamedshaad">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="white" class="bi bi-linkedin" viewBox="0 0 16 16">
-                        <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
-                    </svg>          
-                </a>
-                &nbsp;
-                <a href="https://github.com/shaadclt">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="white" class="bi bi-github" viewBox="0 0 16 16">
-                        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
-                    </svg>
-                </a>
-            </p>
-        </div>
-    </footer>
-"""
-    st.markdown(footer, unsafe_allow_html=True)
-    
-    
     # Set background image using HTML and CSS
     st.markdown(
         f"""
